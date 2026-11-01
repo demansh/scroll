@@ -1,0 +1,71 @@
+:root {
+  --background: #1a1c2c;
+  --feed-width: 100vw;
+  --topbar-height: 0px;
+  --bottombar-height: 0px;
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--background);
+  overscroll-behavior-y: none;
+  overflow-anchor: none;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+canvas {
+  display: block;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.topbar,
+.bottombar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  background: var(--background);
+}
+
+.topbar {
+  top: 0;
+  padding-top: env(safe-area-inset-top);
+}
+
+.bottombar {
+  bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.feed {
+  width: var(--feed-width);
+  margin: 0 auto;
+  padding-top: calc(var(--topbar-height) + env(safe-area-inset-top));
+  padding-bottom: calc(var(--bottombar-height) + env(safe-area-inset-bottom));
+}
+
+.sentinel {
+  height: 1px;
+}
+
+.fatal {
+  position: fixed;
+  inset: auto 12px 12px 12px;
+  z-index: 100;
+  padding: 12px;
+  background: #b13e53;
+  color: #f4f4f4;
+  font: 14px/1.4 monospace;
+  white-space: pre-wrap;
+}
